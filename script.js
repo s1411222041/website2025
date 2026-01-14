@@ -75,3 +75,25 @@ window.addEventListener('scroll', () => {
         text.style.transform = `translateY(${offset}px)`;
     });
 });
+
+// ... 你原本的視覺效果代碼 ...
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... 原本的 Modal 控制 ...
+
+    // --- 資料庫邏輯開始 ---
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // 防止頁面重新整理
+
+            const name = document.getElementById('userName').value;
+            const message = document.getElementById('userMsg').value;
+
+            console.log("資料準備送出:", { name, message });
+            alert("你點擊了送出！接下來我們需要去 Firebase 申請一個 Key 來啟動真正的儲存。");
+        });
+    }
+    // --- 資料庫邏輯結束 ---
+});
