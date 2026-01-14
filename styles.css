@@ -168,7 +168,7 @@ nav a {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-sizing: border-box; /* 重要：防止寬度超出 */
+    box-sizing: border-box; /*防止寬度超出 */
 }
 
 .modal-content .btn-primary, 
@@ -177,7 +177,7 @@ nav a {
     align-self: center; /* 按鈕置中 */
 }
 
-/* 確保遊戲卡片容器有固定寬高，格式才不會跑掉 */
+/* 確保遊戲卡片容器有固定寬高，格式不跑掉 */
 .game-link {
     position: relative;
     display: block;
@@ -191,11 +191,11 @@ nav a {
 .game-pic {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保圖片不變形填滿容器 */
+    object-fit: cover; /* 圖片不變形填滿容器 */
     transition: transform 0.5s ease;
 }
 
-/* 遊戲名稱美化：絕對定位在底部 */
+/* 遊戲名稱美化 */
 .game-name {
     position: absolute;
     bottom: 0;
@@ -203,11 +203,11 @@ nav a {
     width: 100%;
     padding: 10px 0;
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-    color: #4dd0e1; /* 使用你的主題青藍色，或是白色 #ffffff */
+    color: #4dd0e1; /* 主題青藍色，或是白色 #ffffff */
     font-weight: bold;
     text-align: center;
     
-    /* 動效：預設隱藏，滑鼠移入才顯示 */
+    /* 滑鼠移入才顯示 */
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;

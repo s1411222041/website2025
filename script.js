@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. 打字機效果
+    // 1. 打字機
     new Typed('#typed-text', {
         strings: ["歡迎來到我的個人空間", "熱愛遊戲與開發的日常", "ciallo (∠·ω )⌒★"],
         typeSpeed: 50,
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. 滑鼠跟隨
     const follower = document.querySelector('.cursor-follower');
     document.addEventListener('mousemove', (e) => {
-        // 使用 requestAnimationFrame 或更平滑的位移
+        //更平滑的位移
         follower.style.transform = `translate(${e.clientX - 7}px, ${e.clientY - 7}px)`;
     });
 
@@ -50,50 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 確保 scroll 監聽器依然簡潔
-window.addEventListener('scroll', () => {
-    const scrollValue = window.scrollY;
-    const pTexts = document.querySelectorAll('.parallax-text');
-    
-    pTexts.forEach(text => {
-        let parentPos = text.closest('.parallax-window').offsetTop;
-        // 修正後的計算公式，讓文字在畫面中央時位移最自然
-        let offset = (scrollValue - parentPos) * 0.4;
-        text.style.transform = `translateY(${offset}px)`;
-    });
-});
-
-// 確保 scroll 監聽器依然簡潔
-window.addEventListener('scroll', () => {
-    const scrollValue = window.scrollY;
-    const pTexts = document.querySelectorAll('.parallax-text');
-    
-    pTexts.forEach(text => {
-        let parentPos = text.closest('.parallax-window').offsetTop;
-        // 修正後的計算公式，讓文字在畫面中央時位移最自然
-        let offset = (scrollValue - parentPos) * 0.4;
-        text.style.transform = `translateY(${offset}px)`;
-    });
-});
-
-// ... 你原本的視覺效果代碼 ...
-
 document.addEventListener('DOMContentLoaded', () => {
-    // ... 原本的 Modal 控制 ...
+    // ...打字機與視差效果程式碼 ...
 
-    // --- 資料庫邏輯開始 ---
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // 防止頁面重新整理
+    // --- 點擊計數邏輯 ---
+    const clickBtn = document.getElementById('openContactModal'); // 紀錄「聯絡我」按鈕被點幾次
+    const displayCount = document.getElementById('clickCountDisplay'); // 用來顯示次數的 HTML 元素
 
-            const name = document.getElementById('userName').value;
-            const message = document.getElementById('userMsg').value;
+    if (window.db) {
+        const { ref, runTransaction, onValue } = window.dbRefs;
+        const clickRef = ref(window.db, 'stats/clickCount');
 
-            console.log("資料準備送出:", { name, message });
-            alert("你點擊了送出！接下來我們需要去 Firebase 申請一個 Key 來啟動真正的儲存。");
+        // A. 即時監聽資料庫，顯示目前的點擊次數
+        onValue(clickRef, (snapshot) => {
+            const data = snapshot.val() || 0;
+            if (displayCount) displayCount.innerText = `已被點擊 ${data} 次`;
+        });
+
+        // B. 點擊時，增加資料庫數值
+        clickBtn.addEventListener('click', () => {
+            runTransaction(clickRef, (currentValue) => {
+                return (currentValue || 0) + 1;
+            });
         });
     }
-    // --- 資料庫邏輯結束 ---
 });
