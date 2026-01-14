@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳櫟任 - 我的個人網站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor-follower"></div>
+
+    <header>
+        <h1 class="glow-text">陳櫟任的個人空間</h1>
+        <div class="typed-container">
+            <span id="typed-text"></span>
+        </div>
+        <nav>
+            <a href="#about" class="nav-link">關於我</a>
+            <a href="#skills" class="nav-link">遊戲收藏</a>
+            <a href="#anime" class="nav-link">影集動畫</a>
+            <a href="#contact" class="nav-link">聯絡我</a>
+        </nav>
+    </header>
+
+    <section id="about" class="glass-card">
+        <h2>🧑‍💻 關於我</h2>
+        <p class="bio">本名：<strong>陳櫟任</strong> | 生日：93年12月21日</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>🚀 實作練習</h3>
+                <p>在 VS Code 中建立個人網站，學習前端核心技術。</p>
+            </div>
+            <div class="timeline-item">
+                <h3>🎓 初探開發</h3>
+                <p>了解網頁結構與樣式設計，開啟工程師之路。</p>
+            </div>
+            <div class="timeline-item">
+                <h3>🎮 個人興趣</h3>
+                <p>沈浸於線上遊戲的策略與動畫影集的敘事魅力。</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax-window" style="background-image: url('images/ARK.png');">
+        <div class="parallax-overlay">
+            <h2 class="parallax-text">GAMING WORLD</h2>
+        </div>
+    </div>
+
+    <section id="skills" class="glass-card">
+    <h2>🕹️ 線上遊戲收藏</h2>
+    <div class="game-container">
+        <a href="https://ak.hypergryph.com/" target="_blank" class="game-link">
+            <img src="images/ARK.webp" class="game-pic" alt="ARK">
+            <div class="game-name">明日方舟</div>
+        </a>
+
+        <a href="https://wutheringwaves.kurogames.com/" target="_blank" class="game-link">
+            <img src="images/WUWA.jpg" class="game-pic" alt="WUWA">
+            <div class="game-name">鳴潮</div>
+        </a>
+
+        <a href="https://hsr.hoyoverse.com/" target="_blank" class="game-link">
+            <img src="images/STARRAIL.png" class="game-pic" alt="STARRAIL">
+            <div class="game-name">星穹鐵道</div>
+        </a>
+
+        <a href="https://limbuscompany.com/" target="_blank" class="game-link">
+            <img src="images/BUS.png" class="game-pic" alt="BUS">
+            <div class="game-name">邊獄巴士</div>
+        </a>
+    </div>
+</section>
+
+    <div class="parallax-window" style="background-image: url('images/aot.png');">
+        <div class="parallax-overlay">
+            <h2 class="parallax-text">FAVORITE ANIME</h2>
+        </div>
+    </div>
+
+    <section id="anime" class="glass-card">
+        <h2>📽️ 影集與動畫</h2>
+        <div class="game-container">
+            <img src="images/AOT.jpeg" class="game-pic" alt="進擊的巨人">
+            <img src="images/fa.png" class="game-pic" alt="鋼之鍊金術師">
+            <img src="images/ga.png" class="game-pic" alt="GA">
+            <img src="images/HUNT.png" class="game-pic" alt="獵人">
+        </div>
+    </section>
+
+    <section id="contact" class="glass-card">
+        <h2>📞 聯絡我</h2>
+        <div class="social-links">
+            <a href="https://www.instagram.com/liren_1221/" target="_blank" class="social-icon">📸 Instagram</a>
+            <a href="https://www.facebook.com/chen.li.ren.769909/" target="_blank" class="social-icon">📸 Facebook</a>
+        </div>
+        <button id="openContactModal" class="btn-primary">發送訊息</button>
+    </section>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-btn">&times;</span>
+            <h3>寄信給我</h3>
+            <form id="contactForm">
+                <div class="input-group">
+                    <label>姓名:</label><input type="text" required>
+                </div>
+                <div class="input-group">
+                    <label>Email:</label><input type="email" required>
+                </div>
+                <div class="input-group">
+                    <label>訊息:</label><textarea rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">送出</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
