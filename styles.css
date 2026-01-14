@@ -35,7 +35,7 @@ header {
     background: rgba(0, 0, 0, 0.7);
     padding: 3em 0;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgb(10, 10, 10);
 }
 
 .glow-text {
@@ -225,4 +225,14 @@ nav a {
 .game-link:hover .game-name {
     opacity: 1;           /* 文字顯現 */
     transform: translateY(0); /* 文字滑入 */
+}
+
+#typed-text {
+    color: #f3f1ef; /* 這裡可以改成您喜歡的顏色，例如橙色 */
+    font-weight: bold; /* 加粗文字 */
+}
+
+/* 如果您想改打字機游標的顏色 */
+.typed-cursor {
+    color: #f7f7f7;
 }
